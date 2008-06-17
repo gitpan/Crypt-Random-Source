@@ -16,9 +16,9 @@ Hash: SHA1
 
 SHA1 da1c4286b4dbfcf6ea5a106c604d8d9750c609da MANIFEST
 SHA1 e8482690dad0ff3aaa335aa5b8b650851e504871 MANIFEST.SKIP
-SHA1 976236c7dca17a57d00b94ae3f6a1e5930a78d6f META.yml
-SHA1 c8a4b476c4f5ddc4b53c6c8b07905ec08a63ec29 Makefile.PL
-SHA1 3b4d1cf6596e0cff0c3af0783c8568968a87b7b3 lib/Crypt/Random/Source.pm
+SHA1 bf33c032a7ac882ea8a2d800ae565def7471a925 META.yml
+SHA1 6ac9d91a38a45df4fb636457e88e8cb20ff9b08d Makefile.PL
+SHA1 6c44bd39bdc168c862b1204d7ba30ab81d156d3a lib/Crypt/Random/Source.pm
 SHA1 03d965b640595a2dee67c86271fb074e7d7d188e lib/Crypt/Random/Source/Base.pm
 SHA1 a87b38f7225342b07b5db132c6250f3a7a8da342 lib/Crypt/Random/Source/Base/File.pm
 SHA1 433fb502a6262d1b0c100e9e7b0788e0319e4c03 lib/Crypt/Random/Source/Base/Handle.pm
@@ -37,7 +37,7 @@ SHA1 cc6dacccc179b501a9c63bee9a0bc9dff102131f t/reread.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.7 (Darwin)
 
-iD8DBQFIVxhYVCwRwOvSdBgRAvc3AJ0XrPmFPah/1FMiinG/QZVaCaDitQCgoSHS
-DPMmJWvdqIt+/ZI+KeSg6ME=
-=SVso
+iD8DBQFIVxjqVCwRwOvSdBgRAoFqAJ44Doe0IdA/m6oHL1XRK+qmpkizFQCbBAJx
+pe1u8u0zbDUpvGmIvYHOUEQ=
+=J3km
 -----END PGP SIGNATURE-----
