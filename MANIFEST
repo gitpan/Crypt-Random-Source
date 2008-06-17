@@ -1,9 +1,11 @@
+Changes
 lib/Crypt/Random/Source.pm
 lib/Crypt/Random/Source/Base.pm
 lib/Crypt/Random/Source/Base/File.pm
 lib/Crypt/Random/Source/Base/Handle.pm
 lib/Crypt/Random/Source/Base/Proc.pm
 lib/Crypt/Random/Source/Base/RandomDevice.pm
+lib/Crypt/Random/Source/Factory.pm
 lib/Crypt/Random/Source/Strong.pm
 lib/Crypt/Random/Source/Strong/devrandom.pm
 lib/Crypt/Random/Source/Weak.pm
@@ -14,8 +16,10 @@ MANIFEST			This list of files
 MANIFEST.SKIP
 t/blocking.t
 t/dev_random.t
+t/factory.t
 t/proc.t
 t/rand.t
 t/reread.t
+t/sugar.t
 META.yml                                 Module meta-data (added by MakeMaker)
 SIGNATURE                                Public-key signature (added by MakeMaker)
