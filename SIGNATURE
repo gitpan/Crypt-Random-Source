@@ -1,0 +1,43 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.55.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 da1c4286b4dbfcf6ea5a106c604d8d9750c609da MANIFEST
+SHA1 e8482690dad0ff3aaa335aa5b8b650851e504871 MANIFEST.SKIP
+SHA1 14b3eba00b620cee6ada1bd68f6d7079b21f8eb8 META.yml
+SHA1 c8a4b476c4f5ddc4b53c6c8b07905ec08a63ec29 Makefile.PL
+SHA1 88267fff0f6f3b17750dd0ff7b184417e67b212d lib/Crypt/Random/Source.pm
+SHA1 d62ccdbdfedbae3bd15bf259baa61a0fb1d2decf lib/Crypt/Random/Source/Base.pm
+SHA1 c21bba96d4fc631ffe492a12aa6813ae397b60df lib/Crypt/Random/Source/Base/File.pm
+SHA1 433fb502a6262d1b0c100e9e7b0788e0319e4c03 lib/Crypt/Random/Source/Base/Handle.pm
+SHA1 2e0e83e33564ec75719147b376031a8250b95bd5 lib/Crypt/Random/Source/Base/Proc.pm
+SHA1 3f8be8a878beb40e39c53f56495833d128fed1b0 lib/Crypt/Random/Source/Base/RandomDevice.pm
+SHA1 a8ba782deaeb5217a17b33c31fa4aa6fe5b44a8b lib/Crypt/Random/Source/Strong.pm
+SHA1 68cae49610d2555a19031e62ddbf9ce54ca70112 lib/Crypt/Random/Source/Strong/devrandom.pm
+SHA1 995c5780d2402268ca84a2fa718cebeb1f46f9e2 lib/Crypt/Random/Source/Weak.pm
+SHA1 ad46efc0a56a101342a41c06fbdc1cf7258eb31b lib/Crypt/Random/Source/Weak/devurandom.pm
+SHA1 1748097c118f9f1d10aeb88bed0edf89be2e4761 lib/Crypt/Random/Source/Weak/rand.pm
+SHA1 41c2212931ae94696b07f393b9d058c63cd957ef t/blocking.t
+SHA1 45d49ac9db82d06f2d89b59e8f345c1b7a978355 t/dev_random.t
+SHA1 afea796513a0a90f6a50bec195f6ad8a9f52dfc8 t/proc.t
+SHA1 e990b3835a9da82b8b3332f4796055b53ebd7fb8 t/rand.t
+SHA1 cc6dacccc179b501a9c63bee9a0bc9dff102131f t/reread.t
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.7 (Darwin)
+
+iD8DBQFIVwG9VCwRwOvSdBgRAt6YAJ9UDMoLHkjdWZdSIDXbd/UX+hlsmgCghXxb
+2GUjnNcXKuJFQTYzSJYQGwo=
+=sf6D
+-----END PGP SIGNATURE-----
