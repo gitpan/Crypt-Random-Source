@@ -5,6 +5,30 @@ use Squirrel;
 
 extends qw(Crypt::Random::Source::Base::File);
 
+sub rank { 100 } # good quality, pretty fast
+
+has path => (
+	builder => "default_path",
+);
+
+sub available {
+	-r shift->default_path;
+}
+
+sub seed {
+	my ( $self, @args ) = @_;
+
+	my $fh = $self->open_handle("w+");
+
+	print $fh @args;
+
+	close $fh;
+}
+
+sub default_path {
+	die "abstract";
+}
+
 __PACKAGE__
 
 __END__

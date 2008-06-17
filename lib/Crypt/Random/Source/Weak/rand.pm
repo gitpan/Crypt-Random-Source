@@ -10,6 +10,10 @@ extends qw(
 	Crypt::Random::Source::Base
 );
 
+sub rank { -100 } # slow fallback
+
+sub available { 1 }
+
 sub seed {
 	my ( $self, @args ) = @_;
 	srand( unpack("%L*", @args) );
