@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Crypt-Random-Source
-version:            0.04
+version:            0.05
 abstract:           ~
 author:  []
 license:            unknown
@@ -11,7 +11,7 @@ build_requires:
     ExtUtils::MakeMaker:  0
 requires:
     Module::Find:      0
-    Mouse:             0.04
+    Moose:             0.92
     namespace::clean:  0.08
     Sub::Exporter:     0
     Test::Exception:   0
