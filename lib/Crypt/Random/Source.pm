@@ -13,7 +13,7 @@ use Sub::Exporter -setup => {
 	groups => { default => [qw(get get_weak get_strong)] },
 };
 
-our $VERSION = "0.03";
+our $VERSION = "0.04";
 
 use Crypt::Random::Source::Factory;
 
@@ -42,7 +42,7 @@ __END__
 
 =head1 NAME
 
-Crypt::Random::Source - Get random weak or strong random data.
+Crypt::Random::Source - Get weak or strong random data from pluggable sources.
 
 =head1 SYNOPSIS
 
@@ -80,9 +80,7 @@ L<Crypt::Random>, L<Crypt::Util>
 
 =head1 VERSION CONTROL
 
-This module is maintained using Darcs. You can get the latest version from
-L<http://nothingmuch.woobling.org/code>, and use C<darcs send> to commit
-changes.
+L<http://github.com/nothingmuch/crypt-random-source>
 
 =head1 AUTHOR
 

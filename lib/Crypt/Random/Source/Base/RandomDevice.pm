@@ -1,13 +1,13 @@
 #!/usr/bin/perl
 
 package Crypt::Random::Source::Base::RandomDevice;
-use Squirrel;
+use Moose;
 
 extends qw(Crypt::Random::Source::Base::File);
 
 sub rank { 100 } # good quality, pretty fast
 
-has path => (
+has '+path' => (
 	builder => "default_path",
 );
 
@@ -41,11 +41,11 @@ Crypt::Random::Source::Base::RandomDevice - Base class for random devices
 
 =head1 SYNOPSIS
 
-	use Squirrel;
+	use Moose;
 
 	extends qw(Crypt::Random::Source::Base::RandomDevice);
 
-	has '+path' => ( default => "/dev/myrandom" );
+	sub default_path { "/dev/myrandom" }
 
 =head1 DESCRIPTION
 
