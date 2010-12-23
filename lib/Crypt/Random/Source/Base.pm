@@ -1,7 +1,13 @@
-#!/usr/bin/perl
-
 package Crypt::Random::Source::Base;
-use Moose;
+BEGIN {
+  $Crypt::Random::Source::Base::AUTHORITY = 'cpan:NUFFIN';
+}
+BEGIN {
+  $Crypt::Random::Source::Base::VERSION = '0.06';
+}
+# ABSTRACT: Abstract base class for L<Crypt::Random::Source> classes
+
+use Any::Moose;
 
 sub available { 0 }
 
@@ -39,16 +45,17 @@ sub get_data {
 	}
 }
 
-__PACKAGE__
+1;
+
 
 __END__
-
 =pod
+
+=encoding utf-8
 
 =head1 NAME
 
-Crypt::Random::Source::Base - Abstract base class for
-L<Crypt::Random::Source> classes.
+Crypt::Random::Source::Base - Abstract base class for L<Crypt::Random::Source> classes
 
 =head1 SYNOPSIS
 
@@ -63,16 +70,14 @@ In the future it will be a role.
 
 =head1 METHODS
 
-=over 4
-
-=item get $n, %args
+=head2 get $n, %args
 
 Gets C<$n> random bytes and returns them as a string.
 
 This method may produce fatal errors if the source was unable to provide enough
 data.
 
-=item read $buf, $n, [ $off ]
+=head2 read $buf, $n, [ $off ]
 
 This method is cannibalized from L<IO::Scalar>. It provides an L<IO::Handle>
 work-alike.
@@ -80,31 +85,39 @@ work-alike.
 Note that subclasses override this to operate on a real handle directly if
 available.
 
-=item seed @stuff
+=head2 seed @stuff
 
 On supporting sources this method will add C<@stuff>, whatever it may be, to
 the random seed.
 
 Some sources may not support this, so be careful.
 
-=item available
+=head2 available
 
 This is a class method, such that when it returns true calling C<new> without
 arguments on the class should provide a working source of random data.
 
 This is use by L<Crypt::Random::Source::Factory>.
 
-=item rank
+=head2 rank
 
 This is a class method, with some futz value for a ranking, to help known good
 sources be tried before known bad (slower, less available) sources.
 
-=item get_data %Params
+=head2 get_data %Params
 
 Provided for compatibility with L<Crypt::Random>
 
-=back
+=head1 AUTHOR
+
+Yuval Kogman <nothingmuch@woobling.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2010 by Yuval Kogman.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
-
 

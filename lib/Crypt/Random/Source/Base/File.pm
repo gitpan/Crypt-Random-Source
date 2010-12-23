@@ -1,7 +1,13 @@
-#!/usr/bin/perl
-
 package Crypt::Random::Source::Base::File;
-use Moose;
+BEGIN {
+  $Crypt::Random::Source::Base::File::AUTHORITY = 'cpan:NUFFIN';
+}
+BEGIN {
+  $Crypt::Random::Source::Base::File::VERSION = '0.06';
+}
+# ABSTRACT: File (or device) random data sources
+
+use Any::Moose;
 
 use Carp qw(croak);
 
@@ -27,15 +33,17 @@ sub open_handle {
 	return $fh;
 }
 
-__PACKAGE__
+1;
+
 
 __END__
-
 =pod
+
+=encoding utf-8
 
 =head1 NAME
 
-Crypt::Random::Source::Base::File - File (or device) random data sources.
+Crypt::Random::Source::Base::File - File (or device) random data sources
 
 =head1 SYNOPSIS
 
@@ -52,24 +60,26 @@ This is a base class for file (or file like) random data sources.
 
 =head1 ATTRIBUTES
 
-=over 4
-
-=item path
+=head2 path
 
 A required attribute, the path to the file to open.
 
-=back
-
 =head1 METHODS
 
-=over 4
-
-=item open_handle
+=head2 open_handle
 
 Uses L<IO::File> to open C<path> for reading.
 
-=back
+=head1 AUTHOR
+
+Yuval Kogman <nothingmuch@woobling.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2010 by Yuval Kogman.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
-
 

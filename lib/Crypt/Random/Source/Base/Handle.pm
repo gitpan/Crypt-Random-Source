@@ -1,7 +1,13 @@
-#!/usr/bin/perl
-
 package Crypt::Random::Source::Base::Handle;
-use Moose;
+BEGIN {
+  $Crypt::Random::Source::Base::Handle::AUTHORITY = 'cpan:NUFFIN';
+}
+BEGIN {
+  $Crypt::Random::Source::Base::Handle::VERSION = '0.06';
+}
+# ABSTRACT: L<IO::Handle> based random data sources
+
+use Any::Moose;
 
 use Errno qw(EWOULDBLOCK);
 
@@ -91,11 +97,13 @@ sub close {
 	}
 }
 
-__PACKAGE__
+1;
+
 
 __END__
-
 =pod
+
+=encoding utf-8
 
 =head1 NAME
 
@@ -129,23 +137,21 @@ It implements error handling
 
 =head1 ATTRIBUTES
 
-=over 4
-
-=item handle
+=head2 handle
 
 An L<IO::Handle> or file handle to read from.
 
-=item blocking
+=head2 blocking
 
 This is actually handled by C<handle>, and is documented in L<IO::Handle>.
 
-=item allow_under_read
+=head2 allow_under_read
 
 Whether or not under reading is considered an error.
 
 Defaults to false.
 
-=item reread_attempts
+=head2 reread_attempts
 
 The number of attempts to make at rereading if the handle did not provide
 enough bytes on the first attempt.
@@ -154,45 +160,51 @@ Defaults to 1.
 
 Only used if C<allow_under_read> is enabled.
 
-=back
-
 =head1 METHODS
 
-=over 4
-
-=item get
+=head2 get
 
 See L<Crypt::Random::Source::Base/get>.
 
 When C<blocking> or C<allow_under_read> are set to a true value this method may
 return fewer bytes than requested.
 
-=item read
+=head2 read
 
 This delegates directly to C<handle>.
 
 It B<DOES NOT> provide the same validation as C<get> would have, so no checking
 for underreads is done.
 
-=item close
+=head2 close
 
 Close the handle and clear it.
 
-=item _read
+=head2 _read
 
 C<< $self->handle->read >> but with additional error checking and different
 calling conventions.
 
-=item _read_too_short
+=head2 _read_too_short
 
 Called by C<_read> when not enough data was read from the handle. Normally it
 will either die with an error or attempt to reread. When C<allow_under_read> is
 true it will just return the partial buffer.
 
-=item open_handle
+=head2 open_handle
 
 Abstract method, should return an L<IO::Handle> to use.
 
-=cut
+=head1 AUTHOR
 
+Yuval Kogman <nothingmuch@woobling.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2010 by Yuval Kogman.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut
 

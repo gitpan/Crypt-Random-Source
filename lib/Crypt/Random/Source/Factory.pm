@@ -1,13 +1,17 @@
-#!/usr/bin/perl
-
 package Crypt::Random::Source::Factory;
-use Moose;
+BEGIN {
+  $Crypt::Random::Source::Factory::AUTHORITY = 'cpan:NUFFIN';
+}
+BEGIN {
+  $Crypt::Random::Source::Factory::VERSION = '0.06';
+}
+# ABSTRACT: Load and instantiate sources of random data
+
+use Any::Moose;
 
 use Carp qw(croak);
 
 use Module::Find;
-
-BEGIN { *load_class = defined &Mouse::load_class ? \&Mouse::load_class : \&Class::MOP::load_class }
 
 use namespace::clean -except => [qw(meta)];
 
@@ -130,7 +134,7 @@ sub _build_strong_sources {
 sub best_available {
 	my ( $self, @sources ) = @_;
 
-	my @available = grep { local $@; eval { load_class($_); $_->available }; } @sources;
+	my @available = grep { local $@; eval { Any::Moose::load_class($_); $_->available }; } @sources;
 
 	my @sorted = sort { $b->rank <=> $a->rank } @available;
 
@@ -142,7 +146,7 @@ sub first_available {
 
 	foreach my $class ( @sources ) {
 		local $@;
-		return $class if eval { load_class($class); $class->available };
+		return $class if eval { Any::Moose::load_class($class); $class->available };
 	}
 }
 
@@ -151,15 +155,17 @@ sub locate_sources {
 	[ findsubmod "Crypt::Random::Source::$category" ];
 }
 
-__PACKAGE__
+1;
+
 
 __END__
-
 =pod
+
+=encoding utf-8
 
 =head1 NAME
 
-Crypt::Random::Source::Factory - Load and instantiate sources of random data.
+Crypt::Random::Source::Factory - Load and instantiate sources of random data
 
 =head1 SYNOPSIS
 
@@ -184,22 +190,28 @@ installed sources, and use the first available one.
 
 =head1 METHODS
 
-=over 4
-
-=item get %args
+=head2 get %args
 
 Instantiate any random source, passing %args to the constructor.
 
 The C<type> argument can be C<weak>, C<strong> or C<any>.
 
-=item get_weak %args
+=head2 get_weak %args
 
-=item get_strong %args
+=head2 get_strong %args
 
 Instantiate a new weak or strong random source.
 
-=back
+=head1 AUTHOR
+
+Yuval Kogman <nothingmuch@woobling.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2010 by Yuval Kogman.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
-
 

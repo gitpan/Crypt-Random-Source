@@ -1,7 +1,13 @@
-#!/usr/bin/perl
-
 package Crypt::Random::Source::Weak::rand;
-use Moose;
+BEGIN {
+  $Crypt::Random::Source::Weak::rand::AUTHORITY = 'cpan:NUFFIN';
+}
+BEGIN {
+  $Crypt::Random::Source::Weak::rand::VERSION = '0.06';
+}
+# ABSTRACT: Use C<rand> to create random bytes
+
+use Any::Moose;
 
 use bytes;
 
@@ -24,15 +30,19 @@ sub get {
 	pack "C*", map { int rand 256 } 1 .. $n;
 }
 
-__PACKAGE__
+1;
+
+
+
 
 __END__
-
 =pod
+
+=encoding utf-8
 
 =head1 NAME
 
-Crypt::Random::Source::Weak::rand - Use C<rand> to create random bytes.
+Crypt::Random::Source::Weak::rand - Use C<rand> to create random bytes
 
 =head1 SYNOPSIS
 
@@ -49,9 +59,7 @@ function.
 
 =head1 METHODS
 
-=over 4
-
-=item seed @blah
+=head2 seed @blah
 
 Sets the random seed to a checksum of the stringified values of C<@blah>.
 
@@ -59,12 +67,20 @@ There is no need to call this method unless you want the random sequence to be
 identical to a previously run, in which case you should seed with the same
 value.
 
-=item get $n
+=head2 get $n
 
 Produces C<$n> random bytes.
 
-=back
+=head1 AUTHOR
+
+Yuval Kogman <nothingmuch@woobling.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2010 by Yuval Kogman.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
-
 

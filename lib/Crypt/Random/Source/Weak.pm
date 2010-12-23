@@ -1,20 +1,27 @@
-#!/usr/bin/perl
-
 package Crypt::Random::Source::Weak;
-use Moose;
+BEGIN {
+  $Crypt::Random::Source::Weak::AUTHORITY = 'cpan:NUFFIN';
+}
+BEGIN {
+  $Crypt::Random::Source::Weak::VERSION = '0.06';
+}
+# ABSTRACT: Abstract base class for weak random data sources
+
+use Any::Moose;
 
 sub is_strong { 0 }
 
-__PACKAGE__
+1;
+
 
 __END__
-
 =pod
+
+=encoding utf-8
 
 =head1 NAME
 
-Crypt::Random::Source::Weak - Abstract base class for weak random data
-sources
+Crypt::Random::Source::Weak - Abstract base class for weak random data sources
 
 =head1 SYNOPSIS
 
@@ -28,13 +35,20 @@ This is an abstract base class. There isn't much to describe.
 
 =head1 METHODS
 
-=over 4
-
-=item is_strong
+=head2 is_strong
 
 Returns false
 
-=back
+=head1 AUTHOR
+
+Yuval Kogman <nothingmuch@woobling.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2010 by Yuval Kogman.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
 
