@@ -3,7 +3,7 @@ BEGIN {
   $Crypt::Random::Source::Base::File::AUTHORITY = 'cpan:NUFFIN';
 }
 BEGIN {
-  $Crypt::Random::Source::Base::File::VERSION = '0.06';
+  $Crypt::Random::Source::Base::File::VERSION = '0.07';
 }
 # ABSTRACT: File (or device) random data sources
 
@@ -16,24 +16,27 @@ extends qw(Crypt::Random::Source::Base::Handle);
 use IO::File;
 
 has path => (
-	is => "rw",
-	required => 1,
+    is => "rw",
+    required => 1,
 );
 
 sub open_handle {
-	my ( $self, $mode ) = @_;
+    my ( $self, $mode ) = @_;
 
-	my $file = $self->path;
+    my $file = $self->path;
 
-	my $fh = IO::File->new;
+    my $fh = IO::File->new;
 
-	$fh->open($file, $mode || "r")
-		or croak "open($file): $!";
+    $fh->open($file, $mode || "r")
+        or croak "open($file): $!";
 
-	return $fh;
+    return $fh;
 }
 
 1;
+
+
+# ex: set sw=4 et:
 
 
 __END__
@@ -47,12 +50,12 @@ Crypt::Random::Source::Base::File - File (or device) random data sources
 
 =head1 SYNOPSIS
 
-	use Moose;
-	extends qw(Crypt::Random::Source::Base::File);
+    use Moose;
+    extends qw(Crypt::Random::Source::Base::File);
 
-	has '+path' => (
-		default => "/foo/bar",
-	);
+    has '+path' => (
+        default => "/foo/bar",
+    );
 
 =head1 DESCRIPTION
 
@@ -72,11 +75,11 @@ Uses L<IO::File> to open C<path> for reading.
 
 =head1 AUTHOR
 
-Yuval Kogman <nothingmuch@woobling.org>
+  Yuval Kogman <nothingmuch@woobling.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Yuval Kogman.
+This software is copyright (c) 2011 by Yuval Kogman.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

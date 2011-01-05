@@ -3,7 +3,7 @@ BEGIN {
   $Crypt::Random::Source::AUTHORITY = 'cpan:NUFFIN';
 }
 BEGIN {
-  $Crypt::Random::Source::VERSION = '0.06';
+  $Crypt::Random::Source::VERSION = '0.07';
 }
 # ABSTRACT: Get weak or strong random data from pluggable sources
 
@@ -12,11 +12,11 @@ use 5.008;
 use warnings;
 
 use Sub::Exporter -setup => {
-	exports  => [qw(
-		get get_weak get_strong
-		factory
-	)],
-	groups => { default => [qw(get get_weak get_strong)] },
+    exports  => [qw(
+        get get_weak get_strong
+        factory
+    )],
+    groups => { default => [qw(get get_weak get_strong)] },
 };
 
 use Crypt::Random::Source::Factory;
@@ -41,6 +41,8 @@ END { undef $weak; undef $strong; undef $any; undef $factory }
 1;
 
 
+# ex: set sw=4 et:
+
 __END__
 =pod
 
@@ -52,10 +54,10 @@ Crypt::Random::Source - Get weak or strong random data from pluggable sources
 
 =head1 SYNOPSIS
 
-	use Crypt::Random::Source qw(get_strong);
+    use Crypt::Random::Source qw(get_strong);
 
-	# get 10 cryptographically strong random bytes from an available source
-	my $bytes = get_strong(10);
+    # get 10 cryptographically strong random bytes from an available source
+    my $bytes = get_strong(10);
 
 =head1 DESCRIPTION
 
@@ -86,11 +88,11 @@ L<Crypt::Random>, L<Crypt::Util>
 
 =head1 AUTHOR
 
-Yuval Kogman <nothingmuch@woobling.org>
+  Yuval Kogman <nothingmuch@woobling.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Yuval Kogman.
+This software is copyright (c) 2011 by Yuval Kogman.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

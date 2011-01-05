@@ -3,7 +3,7 @@ BEGIN {
   $Crypt::Random::Source::Base::Proc::AUTHORITY = 'cpan:NUFFIN';
 }
 BEGIN {
-  $Crypt::Random::Source::Base::Proc::VERSION = '0.06';
+  $Crypt::Random::Source::Base::Proc::VERSION = '0.07';
 }
 # ABSTRACT: Base class for helper processes (e.g. C<openssl>)
 
@@ -11,28 +11,56 @@ use Any::Moose;
 
 extends qw(Crypt::Random::Source::Base::Handle);
 
-use IO::Handle;
+use Capture::Tiny qw(capture);
+use File::Spec;
+use IO::File;
 
 use 5.008;
 
 has command => ( is => "rw", required => 1 );
+has search_path => ( is => 'rw', isa => 'Str', lazy_build => 1 );
+
+# This is a scalar so that people can customize it (which they would
+# particularly need to do on Windows).
+our $TAINT_PATH =
+    '/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin';
+
+sub _build_search_path {
+    # In taint mode it's not safe to use $ENV{PATH}.
+    if (${^TAINT}) {
+        return $TAINT_PATH;
+    }
+    return $ENV{PATH};
+}
 
 sub open_handle {
-	my $self = shift;
+    my $self = shift;
 
-	my $cmd = $self->command;
-	my @cmd = ref $cmd ? @$cmd : $cmd;
+    my $cmd = $self->command;
+    my @cmd = ref $cmd ? @$cmd : $cmd;
+        my $retval;
+        local $ENV{PATH} = $self->search_path;
+        my ($stdout, $stderr) = capture { $retval = system(@cmd) };
+        chomp($stderr);
+        if ($retval) {
+            my $err = join(' ', @cmd) . ": $! ($?)";
+            if ($stderr) {
+                $err .= "\n$stderr";
+            }
+            die $err;
+        }
+        warn $stderr if $stderr;
 
-	open my $fh, "-|", @cmd
-		or die "open(@cmd|): $!";
+    my $fh = IO::File->new(\$stdout, '<');
 
-	bless $fh, "IO::Handle";
-
-	return $fh;
+    return $fh;
 }
 
 1;
 
+
+
+# ex: set sw=4 et:
 
 __END__
 =pod
@@ -45,11 +73,11 @@ Crypt::Random::Source::Base::Proc - Base class for helper processes (e.g. C<open
 
 =head1 SYNOPSIS
 
-	use Moose;
+    use Moose;
 
-	extends qw(Crypt::Random::Source::Base::Proc);
+    extends qw(Crypt::Random::Source::Base::Proc);
 
-	has '+command' => ( default => ... );
+    has '+command' => ( default => ... );
 
 =head1 DESCRIPTION
 
@@ -70,11 +98,11 @@ Opens a pipe for reading using C<command>.
 
 =head1 AUTHOR
 
-Yuval Kogman <nothingmuch@woobling.org>
+  Yuval Kogman <nothingmuch@woobling.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Yuval Kogman.
+This software is copyright (c) 2011 by Yuval Kogman.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

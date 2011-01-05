@@ -5,6 +5,7 @@ META.json
 META.yml
 Makefile.PL
 README
+SIGNATURE
 dist.ini
 lib/Crypt/Random/Source.pm
 lib/Crypt/Random/Source/Base.pm

@@ -26,8 +26,10 @@ my %WriteMakefileArgs = (
   'NAME' => 'Crypt::Random::Source',
   'PREREQ_PM' => {
     'Any::Moose' => '0.11',
+    'Capture::Tiny' => '0.08',
     'Carp' => '0',
     'Errno' => '0',
+    'File::Spec' => '0',
     'IO::File' => '0',
     'IO::Handle' => '0',
     'Module::Find' => '0',
@@ -35,7 +37,7 @@ my %WriteMakefileArgs = (
     'bytes' => '0',
     'namespace::clean' => '0.08'
   },
-  'VERSION' => '0.06',
+  'VERSION' => '0.07',
   'test' => {
     'TESTS' => 't/*.t'
   }

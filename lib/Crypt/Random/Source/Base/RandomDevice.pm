@@ -3,7 +3,7 @@ BEGIN {
   $Crypt::Random::Source::Base::RandomDevice::AUTHORITY = 'cpan:NUFFIN';
 }
 BEGIN {
-  $Crypt::Random::Source::Base::RandomDevice::VERSION = '0.06';
+  $Crypt::Random::Source::Base::RandomDevice::VERSION = '0.07';
 }
 # ABSTRACT: Base class for random devices
 
@@ -14,29 +14,31 @@ extends qw(Crypt::Random::Source::Base::File);
 sub rank { 100 } # good quality, pretty fast
 
 has '+path' => (
-	builder => "default_path",
+    builder => "default_path",
 );
 
 sub available {
-	-r shift->default_path;
+    -r shift->default_path;
 }
 
 sub seed {
-	my ( $self, @args ) = @_;
+    my ( $self, @args ) = @_;
 
-	my $fh = $self->open_handle("w+");
+    my $fh = $self->open_handle("w+");
 
-	print $fh @args;
+    print $fh @args;
 
-	close $fh;
+    close $fh;
 }
 
 sub default_path {
-	die "abstract";
+    die "abstract";
 }
 
 1;
 
+
+# ex: set sw=4 et:
 
 __END__
 =pod
@@ -49,11 +51,11 @@ Crypt::Random::Source::Base::RandomDevice - Base class for random devices
 
 =head1 SYNOPSIS
 
-	use Moose;
+    use Moose;
 
-	extends qw(Crypt::Random::Source::Base::RandomDevice);
+    extends qw(Crypt::Random::Source::Base::RandomDevice);
 
-	sub default_path { "/dev/myrandom" }
+    sub default_path { "/dev/myrandom" }
 
 =head1 DESCRIPTION
 
@@ -64,11 +66,11 @@ L<Crypt::Random::Source::Weak::devurandom> for actual implementations.
 
 =head1 AUTHOR
 
-Yuval Kogman <nothingmuch@woobling.org>
+  Yuval Kogman <nothingmuch@woobling.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Yuval Kogman.
+This software is copyright (c) 2011 by Yuval Kogman.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
