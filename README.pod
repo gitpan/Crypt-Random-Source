@@ -1,44 +1,3 @@
-package Crypt::Random::Source;
-BEGIN {
-  $Crypt::Random::Source::AUTHORITY = 'cpan:NUFFIN';
-}
-# git description: v0.07-12-g69cb5f2
-$Crypt::Random::Source::VERSION = '0.08';
-# ABSTRACT: Get weak or strong random data from pluggable sources
-
-use strict;
-use 5.008;
-use warnings;
-
-use Sub::Exporter -setup => {
-    exports  => [qw(
-        get get_weak get_strong
-        factory
-    )],
-    groups => { default => [qw(get get_weak get_strong)] },
-};
-
-use Crypt::Random::Source::Factory;
-
-our ( $factory, $weak, $strong, $any );
-
-# silence some stupid destructor warnings
-END { undef $weak; undef $strong; undef $any; undef $factory }
-
-sub factory    ()    { $factory ||= Crypt::Random::Source::Factory->new }
-sub _weak      ()    { $weak    ||= factory->get_weak }
-sub _strong    ()    { $strong  ||= factory->get_strong }
-sub _any       ()    { $any     ||= factory->get }
-
-sub get        ($;@) {    _any->get(@_) }
-sub get_weak   ($;@) {   _weak->get(@_) }
-sub get_strong ($;@) { _strong->get(@_) }
-
-# silence some stupid destructor warnings
-END { undef $weak; undef $strong; undef $any; undef $factory }
-
-1;
-
 =pod
 
 =encoding UTF-8
@@ -123,8 +82,3 @@ Yuval Kogman <nothingmuch@woobling.org>
 =back
 
 =cut
-
-__END__
-
-
-# ex: set sw=4 et

@@ -1,5 +1,3 @@
-#!/usr/bin/perl
-
 use strict;
 use warnings;
 
@@ -29,8 +27,5 @@ use ok 'Crypt::Random::Source::Factory';
 
     isa_ok( $f->get, "Crypt::Random::Source::Base" );
 }
-
-
-
 
 # ex: set sw=4 et:

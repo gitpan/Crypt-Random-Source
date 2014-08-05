@@ -2,11 +2,8 @@ package Crypt::Random::Source::Strong::devrandom;
 BEGIN {
   $Crypt::Random::Source::Strong::devrandom::AUTHORITY = 'cpan:NUFFIN';
 }
-BEGIN {
-  $Crypt::Random::Source::Strong::devrandom::VERSION = '0.07';
-}
 # ABSTRACT: A strong random data source using F</dev/random>
-
+$Crypt::Random::Source::Strong::devrandom::VERSION = '0.08';
 use Any::Moose;
 
 extends qw(
@@ -19,17 +16,17 @@ sub default_path { "/dev/random" }
 
 1;
 
-
-# ex: set sw=4 et:
-
-__END__
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =head1 NAME
 
 Crypt::Random::Source::Strong::devrandom - A strong random data source using F</dev/random>
+
+=head1 VERSION
+
+version 0.08
 
 =head1 SYNOPSIS
 
@@ -37,14 +34,18 @@ Crypt::Random::Source::Strong::devrandom - A strong random data source using F</
 
 =head1 AUTHOR
 
-  Yuval Kogman <nothingmuch@woobling.org>
+יובל קוג'מן (Yuval Kogman) <nothingmuch@woobling.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Yuval Kogman.
+This software is copyright (c) 2008 by Yuval Kogman.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
 
+__END__
+
+
+# ex: set sw=4 et:

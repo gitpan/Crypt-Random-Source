@@ -2,11 +2,8 @@ package Crypt::Random::Source::Base::Handle;
 BEGIN {
   $Crypt::Random::Source::Base::Handle::AUTHORITY = 'cpan:NUFFIN';
 }
-BEGIN {
-  $Crypt::Random::Source::Base::Handle::VERSION = '0.07';
-}
 # ABSTRACT: L<IO::Handle> based random data sources
-
+$Crypt::Random::Source::Base::Handle::VERSION = '0.08';
 use Any::Moose;
 
 use Errno qw(EWOULDBLOCK);
@@ -94,24 +91,24 @@ sub close {
         # During global destruction, $self->handle can be undef already,
         # so we need to also check if it is defined.
     if ( $self->has_handle and $self->handle ) {
-        $self->handle->close or die "close: $!";
+        $self->handle->close; # or die "close: $!"; # open "-|" returns exit status on close
         $self->clear_handle;
     }
 }
 
 1;
 
-
-# ex: set sw=4 et:
-
-__END__
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =head1 NAME
 
 Crypt::Random::Source::Base::Handle - L<IO::Handle> based random data sources
+
+=head1 VERSION
+
+version 0.08
 
 =head1 SYNOPSIS
 
@@ -201,14 +198,18 @@ Abstract method, should return an L<IO::Handle> to use.
 
 =head1 AUTHOR
 
-  Yuval Kogman <nothingmuch@woobling.org>
+יובל קוג'מן (Yuval Kogman) <nothingmuch@woobling.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Yuval Kogman.
+This software is copyright (c) 2008 by Yuval Kogman.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
 
+__END__
+
+
+# ex: set sw=4 et:

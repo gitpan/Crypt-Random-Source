@@ -1,5 +1,3 @@
-#!/usr/bin/perl
-
 use strict;
 use warnings;
 
@@ -15,6 +13,5 @@ is( length(get_weak(10)), "10", "got 10 weak bytes" );
 isa_ok( $Crypt::Random::Source::weak, "Crypt::Random::Source::Weak" );
 
 ok( !$Crypt::Random::Source::strong, "no strong source yet" );
-
 
 # ex: set sw=4 et:

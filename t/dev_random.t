@@ -1,5 +1,3 @@
-#!/usr/bin/perl
-
 use strict;
 use warnings;
 
@@ -66,6 +64,5 @@ use ok 'Crypt::Random::Source::Weak::devurandom';
 
     can_ok($p, "seed");
 }
-
 
 # ex: set sw=4 et:

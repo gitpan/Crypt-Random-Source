@@ -2,11 +2,8 @@ package Crypt::Random::Source::Weak::rand;
 BEGIN {
   $Crypt::Random::Source::Weak::rand::AUTHORITY = 'cpan:NUFFIN';
 }
-BEGIN {
-  $Crypt::Random::Source::Weak::rand::VERSION = '0.07';
-}
 # ABSTRACT: Use C<rand> to create random bytes
-
+$Crypt::Random::Source::Weak::rand::VERSION = '0.08';
 use Any::Moose;
 
 use bytes;
@@ -32,19 +29,17 @@ sub get {
 
 1;
 
-
-
-
-# ex: set sw=4 et:
-
-__END__
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =head1 NAME
 
 Crypt::Random::Source::Weak::rand - Use C<rand> to create random bytes
+
+=head1 VERSION
+
+version 0.08
 
 =head1 SYNOPSIS
 
@@ -75,14 +70,18 @@ Produces C<$n> random bytes.
 
 =head1 AUTHOR
 
-  Yuval Kogman <nothingmuch@woobling.org>
+יובל קוג'מן (Yuval Kogman) <nothingmuch@woobling.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Yuval Kogman.
+This software is copyright (c) 2008 by Yuval Kogman.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
 
+__END__
+
+
+# ex: set sw=4 et:

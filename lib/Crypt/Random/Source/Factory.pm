@@ -2,12 +2,10 @@ package Crypt::Random::Source::Factory;
 BEGIN {
   $Crypt::Random::Source::Factory::AUTHORITY = 'cpan:NUFFIN';
 }
-BEGIN {
-  $Crypt::Random::Source::Factory::VERSION = '0.07';
-}
 # ABSTRACT: Load and instantiate sources of random data
-
+$Crypt::Random::Source::Factory::VERSION = '0.08';
 use Any::Moose;
+use Class::Load 'load_class';
 
 use Carp qw(croak);
 
@@ -134,7 +132,7 @@ sub _build_strong_sources {
 sub best_available {
     my ( $self, @sources ) = @_;
 
-    my @available = grep { local $@; eval { Any::Moose::load_class($_); $_->available }; } @sources;
+    my @available = grep { local $@; eval { Class::Load::load_class($_); $_->available }; } @sources;
 
     my @sorted = sort { $b->rank <=> $a->rank } @available;
 
@@ -146,7 +144,7 @@ sub first_available {
 
     foreach my $class ( @sources ) {
         local $@;
-        return $class if eval { Any::Moose::load_class($class); $class->available };
+        return $class if eval { Class::Load::load_class($class); $class->available };
     }
 }
 
@@ -161,17 +159,17 @@ sub locate_sources {
 
 1;
 
-
-# ex: set sw=4 et:
-
-__END__
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =head1 NAME
 
 Crypt::Random::Source::Factory - Load and instantiate sources of random data
+
+=head1 VERSION
+
+version 0.08
 
 =head1 SYNOPSIS
 
@@ -210,14 +208,18 @@ Instantiate a new weak or strong random source.
 
 =head1 AUTHOR
 
-  Yuval Kogman <nothingmuch@woobling.org>
+יובל קוג'מן (Yuval Kogman) <nothingmuch@woobling.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Yuval Kogman.
+This software is copyright (c) 2008 by Yuval Kogman.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
 
+__END__
+
+
+# ex: set sw=4 et:

@@ -1,9 +1,7 @@
-#!/usr/bin/perl
-
 use strict;
 use warnings;
 
-use Test::More tests => 3;
+use Test::More 'no_plan';
 
 use 5.008;
 
@@ -14,6 +12,7 @@ use ok 'Crypt::Random::Source::Base::Handle';
 
 SKIP: {
     skip "Windows can't open a blocking child pipe", 2 if $^O =~ /Win32/i;
+
     defined ( my $child = open my $fh, "-|" ) or die "open: $!";
 
     if ($child) {
