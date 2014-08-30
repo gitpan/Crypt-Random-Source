@@ -1,9 +1,6 @@
 package Crypt::Random::Source::Base::File;
-BEGIN {
-  $Crypt::Random::Source::Base::File::AUTHORITY = 'cpan:NUFFIN';
-}
 # ABSTRACT: File (or device) random data sources
-$Crypt::Random::Source::Base::File::VERSION = '0.08';
+$Crypt::Random::Source::Base::File::VERSION = '0.09';
 use Any::Moose;
 
 use Carp qw(croak);
@@ -11,6 +8,7 @@ use Carp qw(croak);
 extends qw(Crypt::Random::Source::Base::Handle);
 
 use IO::File;
+use namespace::autoclean;
 
 has path => (
     is => "rw",
@@ -42,7 +40,7 @@ Crypt::Random::Source::Base::File - File (or device) random data sources
 
 =head1 VERSION
 
-version 0.08
+version 0.09
 
 =head1 SYNOPSIS
 

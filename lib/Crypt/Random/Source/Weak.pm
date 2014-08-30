@@ -1,10 +1,8 @@
 package Crypt::Random::Source::Weak;
-BEGIN {
-  $Crypt::Random::Source::Weak::AUTHORITY = 'cpan:NUFFIN';
-}
 # ABSTRACT: Abstract base class for weak random data sources
-$Crypt::Random::Source::Weak::VERSION = '0.08';
+$Crypt::Random::Source::Weak::VERSION = '0.09';
 use Any::Moose;
+use namespace::autoclean;
 
 sub is_strong { 0 }
 
@@ -20,7 +18,7 @@ Crypt::Random::Source::Weak - Abstract base class for weak random data sources
 
 =head1 VERSION
 
-version 0.08
+version 0.09
 
 =head1 SYNOPSIS
 

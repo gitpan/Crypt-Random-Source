@@ -1,12 +1,10 @@
 package Crypt::Random::Source::Base::RandomDevice;
-BEGIN {
-  $Crypt::Random::Source::Base::RandomDevice::AUTHORITY = 'cpan:NUFFIN';
-}
 # ABSTRACT: Base class for random devices
-$Crypt::Random::Source::Base::RandomDevice::VERSION = '0.08';
+$Crypt::Random::Source::Base::RandomDevice::VERSION = '0.09';
 use Any::Moose;
 
 extends qw(Crypt::Random::Source::Base::File);
+use namespace::autoclean;
 
 sub rank { 100 } # good quality, pretty fast
 
@@ -44,7 +42,7 @@ Crypt::Random::Source::Base::RandomDevice - Base class for random devices
 
 =head1 VERSION
 
-version 0.08
+version 0.09
 
 =head1 SYNOPSIS
 

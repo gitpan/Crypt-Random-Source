@@ -1,16 +1,14 @@
 package Crypt::Random::Source::Base::Proc;
-BEGIN {
-  $Crypt::Random::Source::Base::Proc::AUTHORITY = 'cpan:NUFFIN';
-}
 # ABSTRACT: Base class for helper processes (e.g. C<openssl>)
-$Crypt::Random::Source::Base::Proc::VERSION = '0.08';
+$Crypt::Random::Source::Base::Proc::VERSION = '0.09';
 use Any::Moose;
 
 extends qw(Crypt::Random::Source::Base::Handle);
 
 use Capture::Tiny 0.08 qw(capture);
 use File::Spec;
-use IO::File;
+use IO::File 1.14;
+use namespace::autoclean;
 
 use 5.008;
 
@@ -65,7 +63,7 @@ Crypt::Random::Source::Base::Proc - Base class for helper processes (e.g. C<open
 
 =head1 VERSION
 
-version 0.08
+version 0.09
 
 =head1 SYNOPSIS
 

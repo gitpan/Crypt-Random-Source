@@ -1,10 +1,8 @@
 package Crypt::Random::Source::Strong;
-BEGIN {
-  $Crypt::Random::Source::Strong::AUTHORITY = 'cpan:NUFFIN';
-}
 # ABSTRACT: Abstract base class for strong random data sources
-$Crypt::Random::Source::Strong::VERSION = '0.08';
+$Crypt::Random::Source::Strong::VERSION = '0.09';
 use Any::Moose;
+use namespace::autoclean;
 
 sub is_strong { 1 }
 
@@ -20,7 +18,7 @@ Crypt::Random::Source::Strong - Abstract base class for strong random data sourc
 
 =head1 VERSION
 
-version 0.08
+version 0.09
 
 =head1 SYNOPSIS
 

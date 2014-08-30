@@ -1,10 +1,8 @@
 package Crypt::Random::Source::Base;
-BEGIN {
-  $Crypt::Random::Source::Base::AUTHORITY = 'cpan:NUFFIN';
-}
 # ABSTRACT: Abstract base class for L<Crypt::Random::Source> classes
-$Crypt::Random::Source::Base::VERSION = '0.08';
+$Crypt::Random::Source::Base::VERSION = '0.09';
 use Any::Moose;
+use namespace::autoclean;
 
 sub available { 0 }
 
@@ -54,7 +52,7 @@ Crypt::Random::Source::Base - Abstract base class for L<Crypt::Random::Source> c
 
 =head1 VERSION
 
-version 0.08
+version 0.09
 
 =head1 SYNOPSIS
 

@@ -1,9 +1,6 @@
 package Crypt::Random::Source::Weak::rand;
-BEGIN {
-  $Crypt::Random::Source::Weak::rand::AUTHORITY = 'cpan:NUFFIN';
-}
 # ABSTRACT: Use C<rand> to create random bytes
-$Crypt::Random::Source::Weak::rand::VERSION = '0.08';
+$Crypt::Random::Source::Weak::rand::VERSION = '0.09';
 use Any::Moose;
 
 use bytes;
@@ -12,6 +9,7 @@ extends qw(
     Crypt::Random::Source::Weak
     Crypt::Random::Source::Base
 );
+use namespace::autoclean;
 
 sub rank { -100 } # slow fallback
 
@@ -39,7 +37,7 @@ Crypt::Random::Source::Weak::rand - Use C<rand> to create random bytes
 
 =head1 VERSION
 
-version 0.08
+version 0.09
 
 =head1 SYNOPSIS
 

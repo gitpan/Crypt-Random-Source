@@ -1,15 +1,13 @@
 package Crypt::Random::Source::Weak::devurandom;
-BEGIN {
-  $Crypt::Random::Source::Weak::devurandom::AUTHORITY = 'cpan:NUFFIN';
-}
 # ABSTRACT: A weak random data source using F</dev/urandom>
-$Crypt::Random::Source::Weak::devurandom::VERSION = '0.08';
+$Crypt::Random::Source::Weak::devurandom::VERSION = '0.09';
 use Any::Moose;
 
 extends qw(
     Crypt::Random::Source::Weak
     Crypt::Random::Source::Base::RandomDevice
 );
+use namespace::autoclean;
 
 sub default_path { "/dev/urandom" }
 
@@ -25,7 +23,7 @@ Crypt::Random::Source::Weak::devurandom - A weak random data source using F</dev
 
 =head1 VERSION
 
-version 0.08
+version 0.09
 
 =head1 SYNOPSIS
 

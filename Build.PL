@@ -64,7 +64,7 @@ EOW
         "\x{5d9}\x{5d5}\x{5d1}\x{5dc} \x{5e7}\x{5d5}\x{5d2}'\x{5de}\x{5df} (Yuval Kogman) <nothingmuch\@woobling.org>"
       ],
       "dist_name" => "Crypt-Random-Source",
-      "dist_version" => "0.08",
+      "dist_version" => "0.09",
       "license" => "perl",
       "module_name" => "Crypt::Random::Source",
       "recommends" => {},
@@ -75,12 +75,13 @@ EOW
         "Carp" => 0,
         "Class::Load" => 0,
         "File::Spec" => 0,
-        "IO::File" => 0,
+        "IO::File" => "1.14",
         "IO::Handle" => 0,
         "Module::Find" => 0,
         "Sub::Exporter" => 0,
         "bytes" => 0,
-        "namespace::clean" => "0.08",
+        "namespace::autoclean" => 0,
+        "namespace::clean" => "0.11",
         "perl" => "5.008",
         "strict" => 0,
         "warnings" => 0
@@ -91,7 +92,7 @@ EOW
         "File::Spec" => 0,
         "IO::Select" => 0,
         "Test::Exception" => 0,
-        "Test::More" => 0,
+        "Test::More" => "0.88",
         "ok" => 0
       }
     );
@@ -102,7 +103,7 @@ EOW
       "File::Spec" => 0,
       "IO::Select" => 0,
       "Test::Exception" => 0,
-      "Test::More" => 0,
+      "Test::More" => "0.88",
       "ok" => 0
     );
 

@@ -1,9 +1,6 @@
 package Crypt::Random::Source::Strong::devrandom;
-BEGIN {
-  $Crypt::Random::Source::Strong::devrandom::AUTHORITY = 'cpan:NUFFIN';
-}
 # ABSTRACT: A strong random data source using F</dev/random>
-$Crypt::Random::Source::Strong::devrandom::VERSION = '0.08';
+$Crypt::Random::Source::Strong::devrandom::VERSION = '0.09';
 use Any::Moose;
 
 extends qw(
@@ -11,6 +8,7 @@ extends qw(
     Crypt::Random::Source::Base::RandomDevice
 );
 
+use namespace::autoclean;
 
 sub default_path { "/dev/random" }
 
@@ -26,7 +24,7 @@ Crypt::Random::Source::Strong::devrandom - A strong random data source using F</
 
 =head1 VERSION
 
-version 0.08
+version 0.09
 
 =head1 SYNOPSIS
 

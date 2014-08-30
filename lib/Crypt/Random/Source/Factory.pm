@@ -1,17 +1,13 @@
 package Crypt::Random::Source::Factory;
-BEGIN {
-  $Crypt::Random::Source::Factory::AUTHORITY = 'cpan:NUFFIN';
-}
 # ABSTRACT: Load and instantiate sources of random data
-$Crypt::Random::Source::Factory::VERSION = '0.08';
+$Crypt::Random::Source::Factory::VERSION = '0.09';
 use Any::Moose;
 use Class::Load 'load_class';
 
 use Carp qw(croak);
 
 use Module::Find;
-
-use namespace::clean -except => [qw(meta)];
+use namespace::autoclean;
 
 sub get {
     my ( $self, %args ) = @_;
@@ -169,7 +165,7 @@ Crypt::Random::Source::Factory - Load and instantiate sources of random data
 
 =head1 VERSION
 
-version 0.08
+version 0.09
 
 =head1 SYNOPSIS
 

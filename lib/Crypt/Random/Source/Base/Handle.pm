@@ -1,15 +1,13 @@
 package Crypt::Random::Source::Base::Handle;
-BEGIN {
-  $Crypt::Random::Source::Base::Handle::AUTHORITY = 'cpan:NUFFIN';
-}
 # ABSTRACT: L<IO::Handle> based random data sources
-$Crypt::Random::Source::Base::Handle::VERSION = '0.08';
+$Crypt::Random::Source::Base::Handle::VERSION = '0.09';
 use Any::Moose;
 
 use Errno qw(EWOULDBLOCK);
 
 use Carp qw(croak);
 use IO::Handle;
+use namespace::autoclean;
 
 extends qw(Crypt::Random::Source::Base);
 
@@ -108,7 +106,7 @@ Crypt::Random::Source::Base::Handle - L<IO::Handle> based random data sources
 
 =head1 VERSION
 
-version 0.08
+version 0.09
 
 =head1 SYNOPSIS
 

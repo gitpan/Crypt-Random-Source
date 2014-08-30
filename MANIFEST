@@ -9,7 +9,6 @@ META.json
 META.yml
 Makefile.PL
 README
-README.pod
 dist.ini
 lib/Crypt/Random/Source.pm
 lib/Crypt/Random/Source/Base.pm
@@ -34,6 +33,8 @@ t/reread.t
 t/sugar.t
 weaver.ini
 xt/author/00-compile.t
+xt/author/clean-namespaces.t
+xt/author/no-tabs.t
 xt/release/changes_has_content.t
 xt/release/cpan-changes.t
 xt/release/distmeta.t
@@ -41,7 +42,6 @@ xt/release/eol.t
 xt/release/kwalitee.t
 xt/release/minimum-version.t
 xt/release/mojibake.t
-xt/release/no-tabs.t
 xt/release/pod-no404s.t
 xt/release/pod-syntax.t
 xt/release/portability.t
