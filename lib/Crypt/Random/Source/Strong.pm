@@ -1,6 +1,6 @@
 package Crypt::Random::Source::Strong;
 # ABSTRACT: Abstract base class for strong random data sources
-$Crypt::Random::Source::Strong::VERSION = '0.09';
+$Crypt::Random::Source::Strong::VERSION = '0.10';
 use Any::Moose;
 use namespace::autoclean;
 
@@ -18,7 +18,7 @@ Crypt::Random::Source::Strong - Abstract base class for strong random data sourc
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 

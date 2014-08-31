@@ -1,6 +1,6 @@
 package Crypt::Random::Source::Weak::rand;
 # ABSTRACT: Use C<rand> to create random bytes
-$Crypt::Random::Source::Weak::rand::VERSION = '0.09';
+$Crypt::Random::Source::Weak::rand::VERSION = '0.10';
 use Any::Moose;
 
 use bytes;
@@ -37,7 +37,7 @@ Crypt::Random::Source::Weak::rand - Use C<rand> to create random bytes
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 

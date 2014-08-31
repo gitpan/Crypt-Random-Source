@@ -1,6 +1,6 @@
 package Crypt::Random::Source::Base::File;
 # ABSTRACT: File (or device) random data sources
-$Crypt::Random::Source::Base::File::VERSION = '0.09';
+$Crypt::Random::Source::Base::File::VERSION = '0.10';
 use Any::Moose;
 
 use Carp qw(croak);
@@ -40,7 +40,7 @@ Crypt::Random::Source::Base::File - File (or device) random data sources
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 

@@ -1,6 +1,6 @@
 package Crypt::Random::Source::Factory;
 # ABSTRACT: Load and instantiate sources of random data
-$Crypt::Random::Source::Factory::VERSION = '0.09';
+$Crypt::Random::Source::Factory::VERSION = '0.10';
 use Any::Moose;
 use Class::Load 'load_class';
 
@@ -165,7 +165,7 @@ Crypt::Random::Source::Factory - Load and instantiate sources of random data
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 

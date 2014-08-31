@@ -1,6 +1,6 @@
 package Crypt::Random::Source::Weak::devurandom;
 # ABSTRACT: A weak random data source using F</dev/urandom>
-$Crypt::Random::Source::Weak::devurandom::VERSION = '0.09';
+$Crypt::Random::Source::Weak::devurandom::VERSION = '0.10';
 use Any::Moose;
 
 extends qw(
@@ -23,7 +23,7 @@ Crypt::Random::Source::Weak::devurandom - A weak random data source using F</dev
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 

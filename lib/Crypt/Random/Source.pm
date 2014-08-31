@@ -1,6 +1,6 @@
 package Crypt::Random::Source;
-# git description: v0.08-7-g993a4e9
-$Crypt::Random::Source::VERSION = '0.09';
+# git description: v0.09-2-ga5f7c6a
+$Crypt::Random::Source::VERSION = '0.10';
 # ABSTRACT: Get weak or strong random data from pluggable sources
 
 use strict;
@@ -46,7 +46,7 @@ Crypt::Random::Source - Get weak or strong random data from pluggable sources
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 

@@ -1,6 +1,6 @@
 package Crypt::Random::Source::Base;
 # ABSTRACT: Abstract base class for L<Crypt::Random::Source> classes
-$Crypt::Random::Source::Base::VERSION = '0.09';
+$Crypt::Random::Source::Base::VERSION = '0.10';
 use Any::Moose;
 use namespace::autoclean;
 
@@ -52,7 +52,7 @@ Crypt::Random::Source::Base - Abstract base class for L<Crypt::Random::Source> c
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 

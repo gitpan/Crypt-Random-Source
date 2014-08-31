@@ -1,6 +1,6 @@
 package Crypt::Random::Source::Base::Proc;
 # ABSTRACT: Base class for helper processes (e.g. C<openssl>)
-$Crypt::Random::Source::Base::Proc::VERSION = '0.09';
+$Crypt::Random::Source::Base::Proc::VERSION = '0.10';
 use Any::Moose;
 
 extends qw(Crypt::Random::Source::Base::Handle);
@@ -63,7 +63,7 @@ Crypt::Random::Source::Base::Proc - Base class for helper processes (e.g. C<open
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 

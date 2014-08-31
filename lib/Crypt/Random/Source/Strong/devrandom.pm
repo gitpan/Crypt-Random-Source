@@ -1,6 +1,6 @@
 package Crypt::Random::Source::Strong::devrandom;
 # ABSTRACT: A strong random data source using F</dev/random>
-$Crypt::Random::Source::Strong::devrandom::VERSION = '0.09';
+$Crypt::Random::Source::Strong::devrandom::VERSION = '0.10';
 use Any::Moose;
 
 extends qw(
@@ -24,7 +24,7 @@ Crypt::Random::Source::Strong::devrandom - A strong random data source using F</
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 

@@ -1,9 +1,9 @@
 package Crypt::Random::Source::Base::Handle;
 # ABSTRACT: L<IO::Handle> based random data sources
-$Crypt::Random::Source::Base::Handle::VERSION = '0.09';
+$Crypt::Random::Source::Base::Handle::VERSION = '0.10';
 use Any::Moose;
 
-use Errno qw(EWOULDBLOCK);
+use Errno;
 
 use Carp qw(croak);
 use IO::Handle;
@@ -61,7 +61,7 @@ sub _read {
     my $buf;
     my $got = $self->read($buf, $n);
 
-    if ( defined($got) && $got == $n || $! == EWOULDBLOCK ) {
+    if ( defined($got) && $got == $n || $!{EWOULDBLOCK} || $!{EAGAIN} ) {
         return $buf;
     } else {
         croak "read error: $!" unless defined $got;
@@ -106,7 +106,7 @@ Crypt::Random::Source::Base::Handle - L<IO::Handle> based random data sources
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 

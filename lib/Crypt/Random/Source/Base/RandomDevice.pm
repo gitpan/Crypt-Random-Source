@@ -1,6 +1,6 @@
 package Crypt::Random::Source::Base::RandomDevice;
 # ABSTRACT: Base class for random devices
-$Crypt::Random::Source::Base::RandomDevice::VERSION = '0.09';
+$Crypt::Random::Source::Base::RandomDevice::VERSION = '0.10';
 use Any::Moose;
 
 extends qw(Crypt::Random::Source::Base::File);
@@ -42,7 +42,7 @@ Crypt::Random::Source::Base::RandomDevice - Base class for random devices
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 
